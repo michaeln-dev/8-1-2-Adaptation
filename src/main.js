@@ -3,13 +3,13 @@ let config = {
     render: {
         pixelArt: true
     },
-    width: 320,
-    height: 240,
+    width: 480,
+    height: 432,
     physics : {
         default: 'arcade',
         debug: true
     },
-    scene: [ Menu, Play ]
+    scene: [ Menu, DevLevel ]
 }
 
 let game = new Phaser.Game(config);

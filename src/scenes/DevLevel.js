@@ -12,6 +12,9 @@ class DevLevel extends GameScene {
     create () {
         // --------------------- Parent Class Reference -------------------------------
         super.create();
+
+        this.sceneKey = this.scene.key;
+        //console.log(this.sceneKey);
         
 
         // ----------------------- Level Objects ---------------------------
@@ -25,7 +28,7 @@ class DevLevel extends GameScene {
         // Run parent class' update function
         super.update();
 
-        console.log(this.canPause);
+        //console.log(this.canPause);
     }
 
 }

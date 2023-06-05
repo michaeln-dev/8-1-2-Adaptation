@@ -1,3 +1,5 @@
+// 4 hours 
+
 let config = {
     type: Phaser.CANVAS,
     render: {
@@ -9,10 +11,10 @@ let config = {
         default: 'arcade',
         debug: true
     },
-    scene: [ Menu, DevLevel ]
+    scene: [ Menu, DevLevel, PauseMenu ]
 }
 
 let game = new Phaser.Game(config);
 
 // Reserve keyboard keys
-let keyW, keyA, keyS, keyD, keyENTER, keyESC;
+let keyUP, keyLEFT, keyDOWN, keyRIGHT, keyCONFIRM, keyCANCEL, keyPAUSE, keySELECT;

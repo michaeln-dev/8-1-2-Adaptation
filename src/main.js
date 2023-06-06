@@ -1,4 +1,4 @@
-// 4 hours 
+// 6 hours 
 
 let config = {
     type: Phaser.CANVAS,

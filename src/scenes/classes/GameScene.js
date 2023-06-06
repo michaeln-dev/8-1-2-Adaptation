@@ -6,6 +6,7 @@ class GameScene extends Phaser.Scene {
     }
 
     create () {
+        console.log("ehhh");
         this.canPause = true;
 
         // <------------------------------ Signals --------------------------------> //
@@ -21,7 +22,6 @@ class GameScene extends Phaser.Scene {
     }
 
     update () {
-        //console.log(this.scene.isActive('pauseScene'));
         if (Phaser.Input.Keyboard.JustDown(keyPAUSE) && this.canPause) {
             this.pause_game();
         }

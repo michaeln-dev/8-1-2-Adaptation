@@ -5,12 +5,16 @@ let config = {
     render: {
         pixelArt: true
     },
-    width: 480,
-    height: 432,
+    width: 160,
+    height: 144,
     physics : {
         default: 'arcade',
-        debug: true
+        arcade: {
+            debug: false
+        }
     },
+    zoom: 4,
+
     scene: [ Menu, DevLevel, PauseMenu ]
 }
 

@@ -6,17 +6,16 @@ class GameScene extends Phaser.Scene {
     }
 
     create () {
-        console.log("ehhh");
         this.canPause = true;
 
         // <------------------------------ Signals --------------------------------> //
         this.events.on('resume', this.resume_game, this); // Run resume function upon unpausing the game
 
         // <------------------------------ Keyboard Input ---------------------------> //
-        keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
-        keyRIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
-        keyUP = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
-        keyDOWN = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
+        keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
+        keyRIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
+        keyUP = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
+        keyDOWN = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
         //keyENTER = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ENTER);
         keyPAUSE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ESC);
     }
@@ -34,8 +33,6 @@ class GameScene extends Phaser.Scene {
     }
 
     resume_game () {
-        // Redefine the pause key 
-        //keyPAUSE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ESC);
         this.scene.resume();
         this.enable_pausing();
     }

@@ -1,4 +1,4 @@
-// 6 hours 
+// 14 hours 
 
 let config = {
     type: Phaser.CANVAS,
@@ -15,7 +15,9 @@ let config = {
     },
     zoom: 3,
 
-    scene: [ StartupScreen, Menu, DevLevel, PauseMenu ]
+    // Be sure to add the Startup screen when not debugging
+    //scene: [ StartupScreen, Menu, DevLevel, PauseMenu ]
+    scene: [ Menu, DevLevel, PauseMenu ]
 }
 
 let game = new Phaser.Game(config);

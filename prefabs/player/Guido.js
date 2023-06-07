@@ -1,11 +1,16 @@
 class Guido extends Phaser.GameObjects.Sprite {
-    constructor(scene, x, y, texture, frame) {
-        super(scene, x, y, texture, frame);
+    constructor(scene, x, y, playerTexture, gunTexture) {
+        super(scene, x, y, playerTexture);
         scene.add.existing(this);
         scene.physics.add.existing(this);
 
         // ---------------------- Player variables ---------------------- //
         this.moveSpeed = 50;
+
+        // Create gun instance
+        const GunTexture = scene.textures.get(gunTexture);
+
+        //this.gun = new PlayerGun(this, 0, 0, GunTexture);
     }
 
     update () {

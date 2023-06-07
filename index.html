@@ -5,12 +5,14 @@
     <!-- Program Specifications -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=160, height=144, initial-scale=1.0">
     <title>8 1/2 Adaptation</title>
 
     <style>
         body {
-            background-color: bisque;
+            background-color: #c4bebb;
+            border: 25px solid #8a858b;
+            box-sizing: border-box;
         }
     </style>
 </head>
@@ -18,14 +20,19 @@
 <body>
     <!-- Library References -->
     <script src="./lib/phaser.js"></script>
+    <script src="./lib/StateMachine.js"></script>
 
-    <!-- Class References -->
+    <!-- Scene Class References -->
     <script src="./src/scenes/classes/GameScene.js"></script>
 
     <!-- Scene References -->
+    <script src="./src/scenes/menus/StartupScreen.js"></script>
     <script src="./src/scenes/menus/PauseMenu.js"></script>
     <script src="./src/scenes/Menu.js"></script>
     <script src="./src/scenes/DevLevel.js"></script>
+
+    <!-- Prefab Class References -->
+    <script src="./prefabs/classes/Health.js"></script>
 
     <!-- Prefab References -->
     <script src="./prefabs/Guido.js"></script>

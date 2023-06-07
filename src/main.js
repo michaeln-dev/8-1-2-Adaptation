@@ -13,9 +13,9 @@ let config = {
             debug: false
         }
     },
-    zoom: 4,
+    zoom: 3,
 
-    scene: [ Menu, DevLevel, PauseMenu ]
+    scene: [ StartupScreen, Menu, DevLevel, PauseMenu ]
 }
 
 let game = new Phaser.Game(config);

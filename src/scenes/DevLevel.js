@@ -20,7 +20,6 @@ class DevLevel extends GameScene {
  
         // ---------------------- Level Tilemap -------------------------------- //
         const map = this.add.tilemap("demo_tilemap_JSON");
-        console.log(map);
         const tileset = map.addTilesetImage("demo_tilesheet_tilemap", 'demo_tilemap_png');
 
         // Add layers
@@ -30,9 +29,8 @@ class DevLevel extends GameScene {
         this.guido = new Guido(this, 0, 0, 'guido', 'player_gun');
 
         // ---------------------- Level Camera
-        //this.cameras.main.startFollow(this.guido);
-        this.camera = this.cameras.main;
-        console.log("( ", this.camera.x, ", ", this.camera.y, " )");
+        this.cameras.main.setBounds(0, 0, 240, 200);
+        this.cameras.main.startFollow(this.guido);
     }
 
     update () {

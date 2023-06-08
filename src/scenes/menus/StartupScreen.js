@@ -4,10 +4,10 @@ class StartupScreen extends Phaser.Scene {
     }
 
     preload() {
-        this.load.image('bg', './assets/title_screen/Title_CMPM_BG.png');
-        this.load.image('logo', './assets/title_screen/Title_CMPM_Logo.png');
+        this.load.image('bg', './assets/startup_screen/Startup_CMPM_BG.png');
+        this.load.image('logo', './assets/startup_screen/Startup_CMPM_Logo.png');
 
-        this.load.audio('sfx', './assets/title_screen/Title_SFX.wav');
+        this.load.audio('sfx', './assets/startup_screen/Startup_SFX.wav');
     }
 
     create() {
@@ -38,7 +38,7 @@ class StartupScreen extends Phaser.Scene {
                     hold: 500,
                     onComplete: () => {
                         // Start next scene
-                        this.scene.start('devLevel');
+                        this.scene.start('titleScreen');
                     }
                 });
             }

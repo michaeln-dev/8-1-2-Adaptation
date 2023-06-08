@@ -48,6 +48,6 @@ class GameScene extends Phaser.Scene {
     }
 
     quit_to_title() {
-        this.scene.start('startupScreen');
+        this.scene.start('titleScreen');
     }
 }

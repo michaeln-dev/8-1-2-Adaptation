@@ -23,7 +23,7 @@ let config = {
 
     // Be sure to add the Startup screen when not debugging
     //scene: [ StartupScreen, Menu, DevLevel, PauseMenu ]
-    scene: [ Menu, DevLevel, PauseMenu, StartupScreen ]
+    scene: [ TitleScreen, DevLevel, PauseMenu, StartupScreen ]
 }
 
 let game = new Phaser.Game(config);

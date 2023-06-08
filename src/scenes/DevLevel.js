@@ -30,7 +30,7 @@ class DevLevel extends GameScene {
 
         // ---------------------- Level Camera
         this.cameras.main.setBounds(0, 0, 240, 200);
-        this.cameras.main.startFollow(this.guido);
+        this.cameras.main.startFollow(this.guido, true);
     }
 
     update () {

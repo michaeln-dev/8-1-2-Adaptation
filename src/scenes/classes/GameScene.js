@@ -9,7 +9,7 @@ class GameScene extends Phaser.Scene {
         this.canPause = true;
 
         // <------------------------------ Signals --------------------------------> //
-        this.events.on('resume', this.resume_game, this); // Run resume function upon unpausing the game
+        this.events.once('quit', this.quit_to_title, this); // Signal to return to title
 
         // <------------------------------ Keyboard Input ---------------------------> //
         keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
@@ -22,12 +22,13 @@ class GameScene extends Phaser.Scene {
     }
 
     update () {
-        if (Phaser.Input.Keyboard.JustDown(keyPAUSE) && this.canPause) {
+        if (Phaser.Input.Keyboard.JustDown(keyPAUSE) && this.canPause && !this.gamePaused) {
             this.pause_game();
         }
     }
 
     pause_game () {
+        this.events.once('resume', this.resume_game, this); // Run resume function upon unpausing the game
         this.disable_pausing();
         this.scene.pause();
         this.scene.launch('pauseScene', { sceneKey : this.sceneKey });
@@ -44,5 +45,9 @@ class GameScene extends Phaser.Scene {
 
     disable_pausing() {
         this.canPause = false;
+    }
+
+    quit_to_title() {
+        this.scene.start('startupScreen');
     }
 }

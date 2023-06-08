@@ -1,4 +1,9 @@
-// 14 hours 
+// 24 hours 
+// Phaser Major Components:
+// Tweens
+// Cameras
+// Tilemaps
+// Physics Systems
 
 let config = {
     type: Phaser.CANVAS,
@@ -7,6 +12,7 @@ let config = {
     },
     width: 160,
     height: 144,
+    backgroundColor: '#ababab',
     physics : {
         default: 'arcade',
         arcade: {
@@ -17,7 +23,7 @@ let config = {
 
     // Be sure to add the Startup screen when not debugging
     //scene: [ StartupScreen, Menu, DevLevel, PauseMenu ]
-    scene: [ Menu, DevLevel, PauseMenu ]
+    scene: [ Menu, DevLevel, PauseMenu, StartupScreen ]
 }
 
 let game = new Phaser.Game(config);

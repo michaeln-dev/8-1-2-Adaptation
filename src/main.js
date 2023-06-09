@@ -1,4 +1,4 @@
-// 24 hours 
+// 26 hours 
 // Phaser Major Components:
 // Tweens
 // Cameras

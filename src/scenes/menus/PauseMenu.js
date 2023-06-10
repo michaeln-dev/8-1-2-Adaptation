@@ -21,12 +21,12 @@ class PauseMenu extends Phaser.Scene {
         this.load.image('fadeBorders', 'fade_borders.png');
 
         // Audio
-        this.load.audio('uiHighlightSound', 'ui_pause_highlight.wav');
-        this.load.audio('uiConfirmSound', 'ui_pause_confirm.wav');
-        this.load.audio('uiCancelSound', 'ui_pause_cancel.wav');
-        this.load.audio('uiEnterSound', 'ui_pause_enter.wav');
-        this.load.audio('uiExitSound', 'ui_pause_exit.wav');
-        this.load.audio('uiFadeSound', 'ui_pause_fade.wav');
+        //this.load.audio('uiHighlightSound', 'ui_pause_highlight.wav');
+        //this.load.audio('uiConfirmSound', 'ui_pause_confirm.wav');
+        //this.load.audio('uiCancelSound', 'ui_pause_cancel.wav');
+        //this.load.audio('uiEnterSound', 'ui_pause_enter.wav');
+        //this.load.audio('uiExitSound', 'ui_pause_exit.wav');
+        //this.load.audio('uiFadeSound', 'ui_pause_fade.wav');
 
         // Exit popup
         this.load.path = './assets/ui/pause_exit_popup/';

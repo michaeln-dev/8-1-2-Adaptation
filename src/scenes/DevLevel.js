@@ -26,7 +26,8 @@ class DevLevel extends GameScene {
         const bgLayer = map.createLayer('Ground', tileset, 0, 0);
 
         // ----------------------- Level Objects ---------------------------
-        this.guido = new Guido(this, 0, 0, 'guido', 'player_gun');
+        let playerGun = new PlayerGun(this, 50, 50, 'player_gun');
+        this.guido = new Guido(this, 50, 50, 'guido', playerGun);
 
         // ---------------------- Level Camera
         this.cameras.main.setBounds(0, 0, 240, 200);

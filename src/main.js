@@ -1,4 +1,4 @@
-// 26 hours 
+// 33 hours 
 // Phaser Major Components:
 // Tweens
 // Cameras
@@ -23,7 +23,7 @@ let config = {
 
     // Be sure to add the Startup screen when not debugging
     //scene: [ StartupScreen, Menu, DevLevel, PauseMenu ]
-    scene: [ TitleScreen, DevLevel, PauseMenu, StartupScreen ]
+    scene: [  DevLevel, TitleScreen, PauseMenu, StartupScreen ]
 }
 
 let game = new Phaser.Game(config);

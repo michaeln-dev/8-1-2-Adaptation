@@ -28,6 +28,7 @@ class Guido extends Phaser.GameObjects.Sprite {
         //Phaser.Display.Bounds.SetBottom(this.gun, this.body.top);
 
         //this.gun.update(this.x, this.y);
+        //this.gun.setVelocity(this.velocity);
         this.player_move_input();
         this.update_gun_rotation();
         this.gun_rotate_input();
@@ -63,10 +64,9 @@ class Guido extends Phaser.GameObjects.Sprite {
     *  https://labs.phaser.io/view.html?src=src/actions/rotate%20container%20facing%20point.js
     */
     update_gun_rotation () {
-
         Phaser.Actions.RotateAroundDistance([this.gunContainer], this, this.gun.currentRotateSpeed, this.gun.distance);
         const angleDeg = Math.atan2(this.gunContainer.y - this.y, this.gunContainer.x - this.x) * 180 / Math.PI;
-        this.gunContainer.angle = angleDeg
+        this.gunContainer.angle = angleDeg+90
     }
 
     // Handles player gun rotation input

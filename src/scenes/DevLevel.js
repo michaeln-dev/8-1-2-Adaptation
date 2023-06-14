@@ -13,6 +13,8 @@ class DevLevel extends GameScene {
         // Tilemap assets
         this.load.image('demo_tilemap_png', './assets/tilemaps/demo_tilesheet.png');
         this.load.tilemapTiledJSON('demo_tilemap_JSON', './assets/tilemaps/demo_tilemap.json');
+
+        this.load.audio('bulletShootSound', './assets/projectiles/bullet_shoot.wav');
     }
 
     create () {
@@ -22,6 +24,7 @@ class DevLevel extends GameScene {
 
         // Physics Groups
         this.bulletGroup = new BulletGroup(this);
+        this.enemies = this.physics.add.staticGroup()
  
         // Level Tilemap 
         const map = this.add.tilemap("demo_tilemap_JSON");
@@ -33,6 +36,10 @@ class DevLevel extends GameScene {
         // Level Objects
         let playerGun = new PlayerGun(this, 50, 50, 'player_gun');
         this.guido = new Guido(this, 50, 50, 'guido', playerGun);
+        this.guido.setCollideWorldBounds(true);
+
+        // Sound effects
+        this.bulletShootSound = this.sound.add('bulletShootSound');
 
         // Level Camera
         this.cameraWidth = 240;

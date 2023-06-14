@@ -29,8 +29,12 @@ class Bullet extends Phaser.Physics.Arcade.Sprite {
 
         // Check if bullet is outside of scene world bounds
         if (!Phaser.Geom.Rectangle.Contains(gameBounds, this.x, this.y)) {
-            this.setActive(false);
-            this.setVisible(false);
+            this.disable_bullet();
         }
+    }
+
+    disable_bullet() {
+        this.setActive(false);
+        this.setVisible(false);
     }
 }

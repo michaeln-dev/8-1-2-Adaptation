@@ -6,7 +6,7 @@ class Enemy extends Phaser.Physics.Arcade.Sprite {
         scene.physics.add.existing(this);
         scene.physics.world.enable(this);
 
-        this.moveSpeed = 20
+        this.moveSpeed = 20;
     }
 
     update() {

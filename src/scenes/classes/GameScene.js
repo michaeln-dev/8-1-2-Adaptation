@@ -3,6 +3,8 @@ class GameScene extends Phaser.Scene {
     constructor (key) {
         super(key);
         this.sceneKey = null;
+
+        this.bulletGroup;
     }
 
     create () {

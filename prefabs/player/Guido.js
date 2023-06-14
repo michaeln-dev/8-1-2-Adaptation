@@ -1,4 +1,4 @@
-class Guido extends Phaser.GameObjects.Sprite {
+class Guido extends Phaser.Physics.Arcade.Sprite {
     constructor(scene, x, y, playerTexture, gunObject) {
         super(scene, x, y, playerTexture);
         scene.add.existing(this);
@@ -10,6 +10,9 @@ class Guido extends Phaser.GameObjects.Sprite {
         // Gun reference variables
         this.gun = gunObject;
         this.gunRotatingCurrently = false;
+
+        this.bulletSpawnTimer;
+        this.start_shoot_timer()
 
 
         // Initialize the necessary components for gun rotation
@@ -35,10 +38,13 @@ class Guido extends Phaser.GameObjects.Sprite {
         ];
         this.container = scene.add.container(this.x, this.y, [this.gun]);
 
-        this.gun.setPosition(this.gunPositions[0].x, this.gunPositions[0].y);
+        this.gun.setPosition(this.clockwisePositions[0].x, this.clockwisePositions[0].y);
     }
 
     update () {
+        //console.log("PLayer X: ", this.x, " and Y: ", this.y);
+        //console.log("Gun X: ", gunGlobalX, " and Y: ", gunGlobalY);
+
         this.body.setVelocity(0);
         this.container.setPosition(this.x, this.y);
 
@@ -102,10 +108,30 @@ class Guido extends Phaser.GameObjects.Sprite {
             x: nextPosition.x,
             y: nextPosition.y,
             angle: nextPosition.angle,
-            duration: 200,
+            duration: 150,
             onComplete: () => {
                 this.gunRotatingCurrently = false;
             }
         });
+    }
+
+    spawn_bullet() {
+        let gunX = this.container.x + this.gun.x;
+        let gunY = this.container.y + this.gun.y;
+
+        this.scene.bulletGroup.spawn_bullet(gunX, gunY, this.gun.angle);
+    }
+
+    start_shoot_timer() {
+        this.bulletSpawnTimer = this.scene.time.addEvent({
+            delay: 1000, // The time interval in milliseconds (3 seconds)
+            loop: true, // Set to true to repeat the timer indefinitely
+            callback: this.spawn_bullet, // The function to call when the timer expires
+            callbackScope: this // The scope in which the function should be called
+        });
+    }
+
+    stop_shoot_timer() {
+        this.bulletSpawnTimer.remove();
     }
 }

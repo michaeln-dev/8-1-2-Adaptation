@@ -44,6 +44,8 @@ class DevLevel extends GameScene {
         this.physics.world.enable([this.guido, this.bulletGroup, this.enemyGroup]);
 
         this.spawn_enemy(10, 10);
+        this.spawn_enemy(50, 50);
+        this.spawn_enemy(80, 30);
 
         // Sound effects
         this.bulletShootSound = this.sound.add('bulletShootSound');
@@ -58,6 +60,7 @@ class DevLevel extends GameScene {
         this.physics.world.setBounds(0,0, this.cameraWidth, this.cameraHeight);
 
         this.physics.add.overlap(this.bulletGroup, this.enemyGroup, this.enemy_bullet_collision, null, this);
+        this.physics.add.overlap(this.guido, this.enemyGroup, this.enemy_player_collision, null, this);
 
         //this.physics.world.collide(this.bulletGroup, this.enemyGroup, this.enemy_bullet_collision, null, this);
     }
@@ -67,12 +70,21 @@ class DevLevel extends GameScene {
         // Update functions
         super.update();
         this.guido.update();
+        this.enemyGroup.getChildren().forEach(item => {
+            item.update();
+        });
     }
 
     spawn_enemy (x, y) {
         let enemy = new Enemy(this, x, y, 'enemy');
         this.physics.world.enable(enemy);
         this.enemyGroup.add(enemy);
+    }
+
+    enemy_player_collision(player, enemy) {
+        enemy.destroy();
+        player.damage();
+        this.cameras.main.shake(200, 0.01);
     }
 
     enemy_bullet_collision(bullet, enemy) {

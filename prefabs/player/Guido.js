@@ -7,6 +7,10 @@ class Guido extends Phaser.Physics.Arcade.Sprite {
         // Player variables
         this.moveSpeed = 50;
 
+        this.totalHealth = 3;
+        this.currentHealth = this.totalHealth;
+        this.isInvulnerable = false;
+
         // Gun reference variables
         this.gun = gunObject;
         this.gunRotatingCurrently = false;
@@ -133,5 +137,25 @@ class Guido extends Phaser.Physics.Arcade.Sprite {
 
     stop_shoot_timer() {
         this.bulletSpawnTimer.remove();
+    }
+
+    damage () {
+        if(!this.isInvulnerable) {
+            this.isInvulnerable = true;
+            this.currentHealth -= 1;
+
+            if (this.currentHealth <= 0) {
+                this.die();
+            }
+
+            // wait a few seconds before being vulnerable
+            this.scene.time.delayedCall(2000, () => {
+                this.isInvulnerable = false;
+            }, null, this);
+        }
+    }
+
+    die () {
+        console.log("player is dead");
     }
 }

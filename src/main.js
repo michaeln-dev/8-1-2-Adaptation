@@ -24,8 +24,6 @@ let config = {
 
     // Be sure to add the Startup screen when not debugging
     scene: [ StartupScreen, TitleScreen, TutorialLevel, DevLevel, FinalLevel, Cutscene1, EndingCutscene, StageRetry, LevelTransition, PauseMenu ]
-    //scene: [ FinalLevel, EndingCutscene, DevLevel, Cutscene1, TutorialLevel, TitleScreen, PauseMenu, StartupScreen, LevelTransition, StageRetry ]
-    //scene: [  TitleScreen, TutorialLevel, DevLevel, PauseMenu, StartupScreen ]
 }
 
 let game = new Phaser.Game(config);

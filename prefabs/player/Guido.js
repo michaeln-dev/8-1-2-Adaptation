@@ -7,7 +7,7 @@ class Guido extends Phaser.Physics.Arcade.Sprite {
         // Player variables
         this.moveSpeed = 50;
 
-        this.totalHealth = 3;
+        this.totalHealth = 4;
         this.currentHealth = this.totalHealth;
         this.isInvulnerable = false;
 

@@ -70,7 +70,7 @@ class DevLevel extends GameScene {
         this.timerText = this.add.text(config.width/4, 2, '', timerTextConfig);
         this.timerText.setScrollFactor(0);
 
-        const gameTimerLength = 60000;
+        const gameTimerLength = 45000;
         this.gameTimer = this.time.addEvent({
             delay: gameTimerLength,
             callback: this.timer_expired,

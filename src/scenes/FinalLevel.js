@@ -70,7 +70,7 @@ class FinalLevel extends GameScene {
         this.timerText = this.add.text(config.width/4, 2, '', timerTextConfig);
         this.timerText.setScrollFactor(0);
 
-        const gameTimerLength = 70000;
+        const gameTimerLength = 60000;
         this.gameTimer = this.time.addEvent({
             delay: gameTimerLength,
             callback: this.timer_expired,
@@ -78,7 +78,7 @@ class FinalLevel extends GameScene {
             loop: false
         });
 
-        const enemySpawnTimerLength = 9000;
+        const enemySpawnTimerLength = 8500;
         // wait a few seconds before being vulnerable
         this.time.delayedCall(3000, () => {
             this.spawn_wave();

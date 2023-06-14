@@ -4,6 +4,10 @@ class Health {
         this.scene = scene;
         this.maxHealth = maxHealth;
         this.currentHealth = maxHealth;
+
+        this.canBeInvulnerable = true;
+        this.canBeHit = true;
+        this.invulnerabilityTime = 2000;
     }
 
     gain_health (heal_amount) {

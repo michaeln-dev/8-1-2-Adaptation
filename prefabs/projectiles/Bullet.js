@@ -1,3 +1,5 @@
+// Reference:
+// https://www.codecaptain.io/blog/game-development/shooting-bullets-phaser-3-using-arcade-physics-groups/696
 class Bullet extends Phaser.Physics.Arcade.Sprite {
     constructor(scene, x, y) {
         super(scene, x, y, 'bullet');
@@ -15,6 +17,9 @@ class Bullet extends Phaser.Physics.Arcade.Sprite {
         this.setVisible(true);
 
         this.setVelocity(velocityX, velocityY);
+
+        this.scene.cameras.main.shake(50, 0.005);
+        this.scene.bulletShootSound.play();
     }
 
     preUpdate (time, delta) {
@@ -22,8 +27,8 @@ class Bullet extends Phaser.Physics.Arcade.Sprite {
 
         const gameBounds = this.scene.physics.world.bounds;
 
+        // Check if bullet is outside of scene world bounds
         if (!Phaser.Geom.Rectangle.Contains(gameBounds, this.x, this.y)) {
-            console.log("Ive just been deactivated");
             this.setActive(false);
             this.setVisible(false);
         }

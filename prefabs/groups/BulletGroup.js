@@ -1,10 +1,12 @@
+// Reference:
+// https://www.codecaptain.io/blog/game-development/shooting-bullets-phaser-3-using-arcade-physics-groups/696
 class BulletGroup extends Phaser.Physics.Arcade.Group {
     constructor(scene) {
         super(scene.physics.world, scene);
 
         this.createMultiple({
             classType: Bullet,
-            frameQuantity: 30,
+            frameQuantity: 20,
             active: false,
             visible: false,
             key: 'bullet'
@@ -12,7 +14,6 @@ class BulletGroup extends Phaser.Physics.Arcade.Group {
     }
 
     spawn_bullet(x, y, angle) {
-        //console.log("This has been called?");
         const bullet = this.getFirstDead(false);
         if (bullet) {
             bullet.setDepth(5);

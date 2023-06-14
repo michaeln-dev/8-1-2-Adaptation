@@ -7,8 +7,15 @@ class StageRetry extends Phaser.Scene {
         this.previousStageKey = data.key;
     }
 
+    preload() {
+        this.load.audio('playerDieSound', './assets/player/player_die.wav');
+    }
+
     create () {
         this.canControl = false;
+
+        this.playerDieSound = this.sound.add('playerDieSound');
+        this.playerDieSound.play();
 
         this.time.delayedCall(500, () => {
             this.canControl = true
@@ -35,9 +42,11 @@ class StageRetry extends Phaser.Scene {
     update () {
         if (this.canControl) {
             if (Phaser.Input.Keyboard.JustDown(keyCONFIRM)) {
+                this.sound.stopAll();
                 this.scene.start(this.previousStageKey);
             }
             else if (Phaser.Input.Keyboard.JustDown(keyCANCEL)) {
+                this.sound.stopAll();
                 this.scene.start("titleScreen");
             }
         }

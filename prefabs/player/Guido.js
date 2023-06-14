@@ -141,6 +141,7 @@ class Guido extends Phaser.Physics.Arcade.Sprite {
 
     damage () {
         if(!this.isInvulnerable) {
+            this.startDamageFlashing();
             this.isInvulnerable = true;
             this.currentHealth -= 1;
 
@@ -150,9 +151,24 @@ class Guido extends Phaser.Physics.Arcade.Sprite {
 
             // wait a few seconds before being vulnerable
             this.scene.time.delayedCall(2000, () => {
+                this.stopDamageFlashing();
                 this.isInvulnerable = false;
             }, null, this);
         }
+    }
+
+    startDamageFlashing () {
+        this.flashTimer = this.scene.time.delayedCall(200, () => {
+            this.alpha = !this.alpha;
+
+            // Recursively keep calling this function until it's time to stop flashing the sprite
+            this.startDamageFlashing();
+        }, null, this.scene);
+    }
+
+    stopDamageFlashing () {
+        this.flashTimer.paused = true;
+        this.alpha = true;
     }
 
     die () {

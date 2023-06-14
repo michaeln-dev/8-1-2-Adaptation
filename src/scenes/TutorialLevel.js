@@ -82,7 +82,7 @@ class TutorialLevel extends GameScene {
         this.physics.add.collider(this.guido, this.nextScene, () => {
                 this.windSound.stop();
                 this.windSound.destroy();
-                this.scene.start("devLevel")
+                this.scene.start("levelTransition", { key : 'devLevel' });
         });
     }
 

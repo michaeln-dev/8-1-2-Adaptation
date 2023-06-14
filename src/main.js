@@ -24,7 +24,7 @@ let config = {
 
     // Be sure to add the Startup screen when not debugging
     //scene: [ StartupScreen, TitleScreen, TutorialLevel, DevLevel, PauseMenu ]
-    scene: [  DevLevel, TutorialLevel, TitleScreen,  PauseMenu, StartupScreen ]
+    scene: [  DevLevel, TutorialLevel, TitleScreen,  PauseMenu, StartupScreen, StageRetry ]
     //scene: [  TitleScreen, TutorialLevel, DevLevel, PauseMenu, StartupScreen ]
 }
 

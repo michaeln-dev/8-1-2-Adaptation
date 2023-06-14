@@ -12,6 +12,7 @@ class GameScene extends Phaser.Scene {
 
         // <------------------------------ Signals --------------------------------> //
         this.events.once('quit', this.quit_to_title, this); // Signal to return to title
+        this.events.once('player_died', this.player_died, this); // Signal to return to title
 
         // <------------------------------ Keyboard Input ---------------------------> //
         keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
@@ -47,6 +48,11 @@ class GameScene extends Phaser.Scene {
 
     disable_pausing() {
         this.canPause = false;
+    }
+
+    player_died () {
+        this.sound.stopAll();
+        this.scene.start("stageRetry", { key : this.sceneKey } );
     }
 
     quit_to_title() {

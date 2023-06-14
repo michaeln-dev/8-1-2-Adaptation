@@ -156,6 +156,6 @@ class Guido extends Phaser.Physics.Arcade.Sprite {
     }
 
     die () {
-        console.log("player is dead");
+        this.scene.events.emit("player_died");
     }
 }

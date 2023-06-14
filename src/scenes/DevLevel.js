@@ -10,6 +10,8 @@ class DevLevel extends GameScene {
 
         this.load.image('bullet', './assets/projectiles/Bullet.png');
 
+        this.load.image('enemy', './assets/enemies/Enemy.png');
+
         // Tilemap assets
         this.load.image('demo_tilemap_png', './assets/tilemaps/demo_tilesheet.png');
         this.load.tilemapTiledJSON('demo_tilemap_JSON', './assets/tilemaps/demo_tilemap.json');
@@ -24,6 +26,7 @@ class DevLevel extends GameScene {
 
         // Physics Groups
         this.bulletGroup = new BulletGroup(this);
+        this.enemyGroup = this.physics.add.group();
         //this.enemies = this.physics.add.staticGroup()
  
         // Level Tilemap 
@@ -38,6 +41,10 @@ class DevLevel extends GameScene {
         this.guido = new Guido(this, 50, 50, 'guido', playerGun);
         this.guido.setCollideWorldBounds(true);
 
+        this.physics.world.enable([this.guido, this.bulletGroup, this.enemyGroup]);
+
+        this.spawn_enemy(10, 10);
+
         // Sound effects
         this.bulletShootSound = this.sound.add('bulletShootSound');
 
@@ -49,6 +56,10 @@ class DevLevel extends GameScene {
 
         // Game physics
         this.physics.world.setBounds(0,0, this.cameraWidth, this.cameraHeight);
+
+        this.physics.add.overlap(this.bulletGroup, this.enemyGroup, this.enemy_bullet_collision, null, this);
+
+        //this.physics.world.collide(this.bulletGroup, this.enemyGroup, this.enemy_bullet_collision, null, this);
     }
 
     update () {
@@ -58,4 +69,15 @@ class DevLevel extends GameScene {
         this.guido.update();
     }
 
+    spawn_enemy (x, y) {
+        let enemy = new Enemy(this, x, y, 'enemy');
+        this.physics.world.enable(enemy);
+        this.enemyGroup.add(enemy);
+    }
+
+    enemy_bullet_collision(bullet, enemy) {
+        bullet.destroy();
+        enemy.destroy();
+        this.cameras.main.shake(200, 0.01);
+    }
 }

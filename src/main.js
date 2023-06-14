@@ -1,4 +1,4 @@
-// 48 hours 
+// 50 hours 
 // Phaser Major Components:
 // Tweens
 // Cameras
@@ -23,8 +23,8 @@ let config = {
     zoom: 3,
 
     // Be sure to add the Startup screen when not debugging
-    //scene: [ StartupScreen, TitleScreen, TutorialLevel, DevLevel, StageRetry,, LevelTransition, PauseMenu ]
-    scene: [ DevLevel, TutorialLevel, TitleScreen, PauseMenu, StartupScreen, LevelTransition, StageRetry ]
+    //scene: [ StartupScreen, TitleScreen, TutorialLevel, DevLevel, Cutscene1, StageRetry, LevelTransition, PauseMenu ]
+    scene: [ Cutscene1, DevLevel, TutorialLevel, TitleScreen, PauseMenu, StartupScreen, LevelTransition, StageRetry ]
     //scene: [  TitleScreen, TutorialLevel, DevLevel, PauseMenu, StartupScreen ]
 }
 

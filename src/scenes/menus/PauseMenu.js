@@ -59,13 +59,13 @@ class PauseMenu extends Phaser.Scene {
 
         const pauseBorder = this.add.sprite(w, h, 'uiPauseBorder');
         const pauseText = this.add.sprite(w, (h - pauseBorder.height/2)+14, 'uiPauseText');
-        this.exitButton = this.add.sprite(w, (h + pauseBorder.height/2)-13, 'uiButtonUnhighlighted');
-        this.optionsButton = this.add.sprite(this.exitButton.x, 
-            this.exitButton.y-16, 'uiButtonUnhighlighted');
-        this.resumeButton = this.add.sprite(this.optionsButton.x, 
-            this.optionsButton.y-16, 'uiButtonHighlighted');
+        this.exitButton = this.add.sprite(w, (h + pauseBorder.height/2)-25, 'uiButtonUnhighlighted');
+        //this.optionsButton = this.add.sprite(this.exitButton.x, 
+        //    this.exitButton.y-16, 'uiButtonUnhighlighted');
+        this.resumeButton = this.add.sprite(this.exitButton.x, 
+            this.exitButton.y-16, 'uiButtonHighlighted');
         const resumeText = this.add.sprite(this.resumeButton.x, this.resumeButton.y, 'uiResumeText');
-        const optionsText = this.add.sprite(this.optionsButton.x, this.optionsButton.y, 'uiOptionsText');
+        //const optionsText = this.add.sprite(this.optionsButton.x, this.optionsButton.y, 'uiOptionsText');
         const exitText = this.add.sprite(this.exitButton.x, this.exitButton.y, 'uiExitText');
 
         this.exitBorder = this.add.sprite(w, h, 'exitBorder');
@@ -133,10 +133,6 @@ class PauseMenu extends Phaser.Scene {
             }
             else if (this.currentSelection == 1) {
                 this.confirmSound.play();
-                console.log("Open options menu");
-            }
-            else if (this.currentSelection == 2) {
-                this.confirmSound.play();
                 this.show_exit_popup();
             }
         }
@@ -147,12 +143,6 @@ class PauseMenu extends Phaser.Scene {
                 this.highlightSound.play();
                 this.currentSelection = 0;
                 this.resumeButton.setTexture('uiButtonHighlighted');
-                this.optionsButton.setTexture('uiButtonUnhighlighted');
-            }
-            else if (this.currentSelection == 2) {
-                this.highlightSound.play();
-                this.currentSelection = 1;
-                this.optionsButton.setTexture('uiButtonHighlighted');
                 this.exitButton.setTexture('uiButtonUnhighlighted');
             }
         }
@@ -161,14 +151,8 @@ class PauseMenu extends Phaser.Scene {
             if (this.currentSelection == 0) {
                 this.highlightSound.play();
                 this.currentSelection = 1;
-                this.optionsButton.setTexture('uiButtonHighlighted');
-                this.resumeButton.setTexture('uiButtonUnhighlighted');
-            }
-            else if (this.currentSelection == 1) {
-                this.highlightSound.play();
-                this.currentSelection = 2;
                 this.exitButton.setTexture('uiButtonHighlighted');
-                this.optionsButton.setTexture('uiButtonUnhighlighted');
+                this.resumeButton.setTexture('uiButtonUnhighlighted');
             }
         }
     }

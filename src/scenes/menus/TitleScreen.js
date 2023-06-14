@@ -48,10 +48,10 @@ class TitleScreen extends Phaser.Scene {
         this.controlsPopup = this.add.image(config.width-42, (config.height/2)+5, 'controls');
         this.controlsPopup.alpha = 0;
 
-        this.startText = this.add.image(27, 105, 'startHighlight');
+        this.startText = this.add.image(27, 115, 'startHighlight');
         this.controlsText = this.add.image(this.startText.x+10, this.startText.y+10, 'controlsUnhighlight');
-        this.optionsText = this.add.image(this.controlsText.x-3, this.controlsText.y+10, 'optionsUnhighlight');
-        this.creditsText = this.add.image(this.optionsText.x, this.optionsText.y+10, 'creditsUnhighlight');
+        //this.optionsText = this.add.image(this.controlsText.x-3, this.controlsText.y+10, 'optionsUnhighlight');
+        this.creditsText = this.add.image(this.controlsText.x-3, this.controlsText.y+10, 'creditsUnhighlight');
 
         // Credits menu assets
         this.creditsPopup = this.add.image(config.width/2, config.height/2, 'credits');
@@ -98,10 +98,6 @@ class TitleScreen extends Phaser.Scene {
 
             else if (this.currentSelection == 2) {
                 this.confirmSound.play();
-                console.log("Open options menu");
-            }
-            else if (this.currentSelection == 3) {
-                this.confirmSound.play();
                 this.creditsPopup.alpha = 1;
                 this.inSubMenu = true;
             }
@@ -120,14 +116,8 @@ class TitleScreen extends Phaser.Scene {
                 this.highlightSound.play();
                 this.currentSelection = 1;
                 this.controlsText.setTexture('controlsHighlight');
-                this.optionsText.setTexture('optionsUnhighlight');
-                this.controlsPopup.alpha = 1;
-            }
-            else if (this.currentSelection == 3) {
-                this.highlightSound.play();
-                this.currentSelection = 2;
-                this.optionsText.setTexture('optionsHighlight');
                 this.creditsText.setTexture('creditsUnhighlight');
+                this.controlsPopup.alpha = 1;
             }
         }
 
@@ -144,14 +134,8 @@ class TitleScreen extends Phaser.Scene {
                 this.highlightSound.play();
                 this.currentSelection = 2;
                 this.controlsText.setTexture('controlsUnhighlight');
-                this.optionsText.setTexture('optionsHighlight');
-                this.controlsPopup.alpha = 0;
-            }
-            else if (this.currentSelection == 2) {
-                this.highlightSound.play();
-                this.currentSelection = 3;
-                this.optionsText.setTexture('optionsUnhighlight');
                 this.creditsText.setTexture('creditsHighlight');
+                this.controlsPopup.alpha = 0;
             }
         }
     }

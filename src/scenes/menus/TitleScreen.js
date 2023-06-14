@@ -57,6 +57,35 @@ class TitleScreen extends Phaser.Scene {
         this.creditsPopup = this.add.image(config.width/2, config.height/2, 'credits');
         this.creditsPopup.alpha = 0;
 
+        let creditsTextConfig = { 
+            fontFamily: 'Arial', 
+            fontSize: '12px', 
+            color: '#000000' 
+        }
+
+        this.credits_title = this.add.text(this.creditsPopup.x-27, this.creditsPopup.y-55, 'CREDITS', creditsTextConfig);
+
+        creditsTextConfig.fontSize = '8px';
+        this.credits_coding = this.add.text(this.credits_title.x-25, this.credits_title.y+20, 'Coding    - MICHAEL NIETO', creditsTextConfig);
+        this.credits_art = this.add.text(this.credits_coding.x, this.credits_coding.y+15, 'Art           - MICHAEL NIETO', creditsTextConfig);
+        this.credits_music = this.add.text(this.credits_art.x, this.credits_art.y+15, 'Music      - MICHAEL NIETO', creditsTextConfig);
+        this.credits_sound = this.add.text(this.credits_music.x, this.credits_music.y+15, 'Sound     - MICHAEL NIETO', creditsTextConfig);
+
+        creditsTextConfig.fontSize = '10px';
+        this.credits_song = this.add.text(this.creditsPopup.x-30, this.credits_music.y+30, 'TITLE SONG', creditsTextConfig);
+
+        creditsTextConfig.fontSize = '8px';
+        this.credits_songName = this.add.text(this.creditsPopup.x-37, this.credits_song.y+12, 'Ride of the Valkyries', creditsTextConfig);
+        this.credits_arranger = this.add.text(this.creditsPopup.x-55, this.credits_songName.y+7, 'Arranged by: MICHAEL NIETO', creditsTextConfig);
+
+        this.credits_title.alpha = 0;
+        this.credits_coding.alpha = 0;
+        this.credits_art.alpha = 0;
+        this.credits_music.alpha = 0;
+        this.credits_sound.alpha = 0;
+        this.credits_song.alpha = 0;
+        this.credits_songName.alpha = 0;
+        this.credits_arranger.alpha = 0;
 
         this.highlightSound = this.sound.add('uiHighlightSound');
         this.confirmSound = this.sound.add('uiConfirmSound');
@@ -99,6 +128,14 @@ class TitleScreen extends Phaser.Scene {
             else if (this.currentSelection == 2) {
                 this.confirmSound.play();
                 this.creditsPopup.alpha = 1;
+                this.credits_title.alpha = 1;
+                this.credits_coding.alpha = 1;
+                this.credits_art.alpha = 1;
+                this.credits_music.alpha = 1;
+                this.credits_sound.alpha = 1;
+                this.credits_song.alpha = 1;
+                this.credits_songName.alpha = 1;
+                this.credits_arranger.alpha = 1;
                 this.inSubMenu = true;
             }
         }
@@ -145,6 +182,15 @@ class TitleScreen extends Phaser.Scene {
             this.cancelSound.play();
             this.creditsPopup.alpha = 0;
             this.inSubMenu = false;
+
+            this.credits_title.alpha = 0;
+            this.credits_coding.alpha = 0;
+            this.credits_art.alpha = 0;
+            this.credits_music.alpha = 0;
+            this.credits_sound.alpha = 0;
+            this.credits_song.alpha = 0;
+            this.credits_songName.alpha = 0;
+            this.credits_arranger.alpha = 0;
         }
     }
 

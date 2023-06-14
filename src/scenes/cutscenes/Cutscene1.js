@@ -61,7 +61,7 @@ class Cutscene1 extends Phaser.Scene {
             duration: 9000,
             hold: 1000,
             onComplete: () => {
-                console.log("done");
+                this.change_scenes();
             }
         });
 
@@ -108,7 +108,6 @@ class Cutscene1 extends Phaser.Scene {
     }
 
     change_scenes () {
-        console.log("Done");
-        //this.scene.start("finalLevel");
+        this.scene.start("finalLevel");
     }
 }

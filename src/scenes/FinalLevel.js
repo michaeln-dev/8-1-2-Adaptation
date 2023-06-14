@@ -1,6 +1,6 @@
-class DevLevel extends GameScene {
+class FinalLevel extends GameScene {
     constructor () {
-        super('devLevel')
+        super('finalLevel')
     }
 
     preload () {
@@ -14,7 +14,7 @@ class DevLevel extends GameScene {
 
         // Tilemap assets
         this.load.image('demo_tilemap_png', './assets/tilemaps/demo_tilesheet.png');
-        this.load.tilemapTiledJSON('demo_tilemap_JSON', './assets/tilemaps/demo_tilemap.json');
+        this.load.tilemapTiledJSON('final_tilemap_JSON', './assets/tilemaps/final_level_tilemap.json');
 
         this.load.audio('bulletShootSound', './assets/projectiles/bullet_shoot.wav');
         this.load.audio('enemyHitSound', './assets/enemies/enemy_hit.wav');
@@ -32,8 +32,8 @@ class DevLevel extends GameScene {
         this.enemyGroup = this.physics.add.group();
  
         // Level Tilemap 
-        const map = this.add.tilemap("demo_tilemap_JSON");
-        const tileset = map.addTilesetImage("demo_tilesheet_tilemap", 'demo_tilemap_png');
+        const map = this.add.tilemap("final_tilemap_JSON");
+        const tileset = map.addTilesetImage("final_level", 'demo_tilemap_png');
 
         // Add tilemap layers
         const bgLayer = map.createLayer('Ground', tileset, 0, 0);
@@ -70,7 +70,7 @@ class DevLevel extends GameScene {
         this.timerText = this.add.text(config.width/4, 2, '', timerTextConfig);
         this.timerText.setScrollFactor(0);
 
-        const gameTimerLength = 60000;
+        const gameTimerLength = 70000;
         this.gameTimer = this.time.addEvent({
             delay: gameTimerLength,
             callback: this.timer_expired,
@@ -78,7 +78,7 @@ class DevLevel extends GameScene {
             loop: false
         });
 
-        const enemySpawnTimerLength = 10000;
+        const enemySpawnTimerLength = 9000;
         // wait a few seconds before being vulnerable
         this.time.delayedCall(3000, () => {
             this.spawn_wave();
@@ -100,7 +100,7 @@ class DevLevel extends GameScene {
         this.bgm.play();
 
         // Level Camera
-        this.cameraWidth = 240;
+        this.cameraWidth = 256;
         this.cameraHeight = 200;
         this.cameras.main.setBounds(0, 0, this.cameraWidth, this.cameraHeight);
         this.cameras.main.startFollow(this.guido, true);
@@ -158,6 +158,6 @@ class DevLevel extends GameScene {
 
     timer_expired() {
         this.sound.stopAll();
-        this.scene.start("cutscene1");
+        this.scene.start("endingCutscene");
     }
 }

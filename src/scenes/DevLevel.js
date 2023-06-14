@@ -24,7 +24,7 @@ class DevLevel extends GameScene {
 
         // Physics Groups
         this.bulletGroup = new BulletGroup(this);
-        this.enemies = this.physics.add.staticGroup()
+        //this.enemies = this.physics.add.staticGroup()
  
         // Level Tilemap 
         const map = this.add.tilemap("demo_tilemap_JSON");

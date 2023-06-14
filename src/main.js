@@ -4,6 +4,7 @@
 // Cameras
 // Tilemaps
 // Physics Systems
+// Timers
 
 let config = {
     type: Phaser.CANVAS,
@@ -22,8 +23,8 @@ let config = {
     zoom: 3,
 
     // Be sure to add the Startup screen when not debugging
-    //scene: [ StartupScreen, TitleScreen, DevLevel, PauseMenu ]
-    scene: [  DevLevel, TitleScreen, PauseMenu, StartupScreen ]
+    //scene: [ StartupScreen, TitleScreen, TutorialLevel, DevLevel, PauseMenu ]
+    scene: [  TutorialLevel, DevLevel, TitleScreen,  PauseMenu, StartupScreen ]
 }
 
 let game = new Phaser.Game(config);

@@ -50,6 +50,7 @@ class GameScene extends Phaser.Scene {
     }
 
     quit_to_title() {
+        this.sound.stopAll();
         this.scene.start('titleScreen');
     }
 }

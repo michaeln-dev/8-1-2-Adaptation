@@ -191,7 +191,7 @@ class TitleScreen extends Phaser.Scene {
             onComplete: () => {
                 this.bgm.stop();
                 this.bgm.destroy();
-                this.scene.start('devLevel');
+                this.scene.start('tutorialLevel');
             }
         });
     }
